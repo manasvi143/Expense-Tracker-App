@@ -36,4 +36,3 @@ Lessons I learned by creating this app :-
 
 
 
-## Sample Preview
