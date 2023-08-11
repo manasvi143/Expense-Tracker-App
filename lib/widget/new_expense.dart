@@ -145,7 +145,9 @@ class _NewExpense extends State<NewExpense> {
                   if (value == null) {
                     return;
                   }
-                  _selectedCatagory = value;
+                  setState(() {
+                    _selectedCatagory = value;
+                  });
                 },
                 value: _selectedCatagory,
               ),
