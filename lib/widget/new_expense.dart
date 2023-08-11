@@ -102,7 +102,7 @@ class _NewExpense extends State<NewExpense> {
                   keyboardType: TextInputType.number,
 
                   decoration: const InputDecoration(
-                      label: Text('Amount'), prefixText: '\$ '),
+                      label: Text('Amount'), prefixText: '₹'),
                 ),
               ),
               const SizedBox(
