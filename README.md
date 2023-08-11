@@ -40,9 +40,4 @@ Lessons I learned by creating this app :-
 <img src="assets/main Screen 2 .png" height="400" width="200"> 
 <img src="assets/main Screem 3 .png" height="400" width="200"> 
 
-<figure class="video_container">
- <video controls="true" allowfullscreen="true">
- <source src="assets/Android Emulator - Pixel_6_API_33_1_5554 2023-08-11 18-02-51.mp4" type="video/mp4" height="400" width="200>
- </video>
-</figure>
 
