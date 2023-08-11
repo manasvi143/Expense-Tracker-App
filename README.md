@@ -22,6 +22,7 @@ Lessons I learned by creating this app :-
 - Snackbars
 - Dialog boxes
 - ModalBottom Sheet
+- Theme of app
 - Calender to pic date
 - DropDown Box
 - Widgets (Statefull & Stateless)
