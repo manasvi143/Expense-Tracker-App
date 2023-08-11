@@ -22,7 +22,7 @@ class ExpencesList extends StatelessWidget {
             // color: kColorScheme.errorContainer,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(30),
               gradient: const LinearGradient(colors: [
                 Color.fromARGB(255, 255, 255, 255),
                 Color.fromARGB(255, 255, 0, 0)
@@ -46,10 +46,12 @@ class ExpencesList extends StatelessWidget {
           ),
           secondaryBackground: Container(
             // color: kColorScheme.errorContainer,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(30),
+              gradient: const LinearGradient(colors: [
+                Color.fromARGB(255, 255, 0, 0),
                 Color.fromARGB(255, 255, 255, 255),
-                Color.fromARGB(255, 255, 0, 0)
               ], begin: Alignment.centerLeft, end: Alignment.centerRight),
             ),
             child: const Padding(
@@ -62,14 +64,13 @@ class ExpencesList extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                        color: Color.fromARGB(255, 0, 0, 0)),
                   ),
                   SizedBox(
                     width: 8,
                   ),
                   Icon(
                     Icons.delete,
-                    color: Colors.white,
                   ),
                 ],
               ),
