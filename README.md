@@ -2,7 +2,7 @@
 # Expense Tracker App 
 
 This app can be used to track your expenses,
-store record of your all spendings.
+store record of all your spendings.
 
 
 ## Features
