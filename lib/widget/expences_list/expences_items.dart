@@ -13,17 +13,26 @@ class ExpencesItem extends StatelessWidget {
       child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
-            vertical: 16,
+            vertical: 10,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                expense.title,
-                style: Theme.of(context).textTheme.titleLarge,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    expense.title,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.mode_edit_outline_outlined)),
+                ],
               ),
               const SizedBox(
-                height: 2,
+                height: 5,
               ),
               Row(
                 children: [
