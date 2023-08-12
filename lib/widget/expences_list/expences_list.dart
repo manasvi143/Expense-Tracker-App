@@ -4,8 +4,11 @@ import 'package:expence_tracker/widget/expences_list/expences_items.dart';
 import 'package:flutter/material.dart';
 
 class ExpencesList extends StatelessWidget {
-  const ExpencesList(
-      {super.key, required this.expences, required this.onRemove});
+  const ExpencesList({
+    super.key,
+    required this.expences,
+    required this.onRemove,
+  });
 
   final void Function(Expense expensess) onRemove;
   final List<Expense> expences;
@@ -81,7 +84,7 @@ class ExpencesList extends StatelessWidget {
             onRemove(expences[index]);
           },
           child: ExpencesItem(
-            expences[index],
+            expense: expences[index],
           ),
         ),
       ),

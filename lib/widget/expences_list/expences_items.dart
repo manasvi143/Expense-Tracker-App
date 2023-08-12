@@ -1,11 +1,37 @@
+import 'package:expence_tracker/widget/expences_list/edit_expense.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/expens.dart';
 
-class ExpencesItem extends StatelessWidget {
-  const ExpencesItem(this.expense, {super.key});
+class ExpencesItem extends StatefulWidget {
+  const ExpencesItem({
+    super.key,
+    required this.expense,
+  });
 
   final Expense expense;
+
+  @override
+  State<ExpencesItem> createState() {
+    return _ExpenseItemState();
+  }
+}
+
+class _ExpenseItemState extends State<ExpencesItem> {
+  void _openEditingsheet() {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (context) =>
+          EditExpense(editExpense: widget.expense, editComplete: editiResult),
+    );
+  }
+
+  void editiResult(Expense editedExpense) {
+    setState(() {
+      widget.expense = editedExpense;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +48,16 @@ class ExpencesItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    expense.title,
+                    widget.expense.title,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const Spacer(),
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.mode_edit_outline_outlined)),
+                      onPressed: _openEditingsheet,
+                      icon: const Icon(
+                        Icons.mode_edit_outline_outlined,
+                        size: Checkbox.width,
+                      )),
                 ],
               ),
               const SizedBox(
@@ -37,17 +66,17 @@ class ExpencesItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '\$${expense.amount.toStringAsFixed(2)}',
+                    '\$${widget.expense.amount.toStringAsFixed(2)}',
                   ),
                   //34.5463 => 34.54
                   const Spacer(),
                   Row(
                     children: [
-                      Icon(catagoeyIcon[expense.catagory]),
+                      Icon(catagoeyIcon[widget.expense.catagory]),
                       const SizedBox(
                         width: 2,
                       ),
-                      Text(expense.formattDate),
+                      Text(widget.expense.formattDate),
                     ],
                   )
                 ],

@@ -34,39 +34,39 @@ class _NewExpense extends State<NewExpense> {
   }
 
   void submitExpenseData() {
-    var enteredAmount = double.tryParse(
-        _amountEdidtingController.text); //'hello' => null , '12.33' => 12.33
-    // ignore: unrelated_type_equality_checks
-    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
+    // var enteredAmount = double.tryParse(
+    //     _amountEdidtingController.text); //'hello' => null , '12.33' => 12.33
+    // // ignore: unrelated_type_equality_checks
+    // final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
 
-    if (_textEdidtingController.text.trim().isEmpty ||
-        amountIsInvalid ||
-        selectedDate == null) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Invalid Inputs'),
-          content: const Text(
-              'Please make sure a valid title, amount, date, ans catagory is selected'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Okay'),
-            ),
-          ],
-        ),
-      );
-      return;
-    }
-    widget.addMyExpense(
-      Expense(
-          amount: enteredAmount,
-          date: selectedDate!,
-          title: _textEdidtingController.text,
-          catagory: _selectedCatagory),
-    );
+    // if (_textEdidtingController.text.trim().isEmpty ||
+    //     amountIsInvalid ||
+    //     selectedDate == null) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) => AlertDialog(
+    //       title: const Text('Invalid Inputs'),
+    //       content: const Text(
+    //           'Please make sure a valid title, amount, date, ans catagory is selected'),
+    //       actions: [
+    //         TextButton(
+    //           onPressed: () {
+    //             Navigator.pop(context);
+    //           },
+    //           child: const Text('Okay'),
+    //         ),
+    //       ],
+    //     ),
+    //   );
+    //   return;
+    // }
+    // widget.addMyExpense(
+    //   Expense(
+    //       amount: enteredAmount,
+    //       date: selectedDate!,
+    //       title: _textEdidtingController.text,
+    //       catagory: _selectedCatagory),
+    // );
     Navigator.pop(context);
   }
 
@@ -91,7 +91,11 @@ class _NewExpense extends State<NewExpense> {
             controller: _textEdidtingController,
             // onChanged: _saveInputTitle,
             maxLength: 50,
-            decoration: const InputDecoration(label: Text('Title')),
+            decoration: const InputDecoration(
+                label: Text(
+              'Title',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+            )),
           ),
           Row(
             children: [
@@ -102,7 +106,12 @@ class _NewExpense extends State<NewExpense> {
                   keyboardType: TextInputType.number,
 
                   decoration: const InputDecoration(
-                      label: Text('Amount'), prefixText: '₹'),
+                      label: Text(
+                        'Amount',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                      prefixText: '₹'),
                 ),
               ),
               const SizedBox(
@@ -125,7 +134,7 @@ class _NewExpense extends State<NewExpense> {
             ],
           ),
           const SizedBox(
-            height: 16,
+            height: 19,
           ),
           Row(
             children: [
@@ -137,6 +146,8 @@ class _NewExpense extends State<NewExpense> {
                         value: catgorry,
                         child: Text(
                           catgorry.name.toUpperCase(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 16),
                         ),
                       ),
                     )
@@ -156,11 +167,17 @@ class _NewExpense extends State<NewExpense> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text('Cancel'),
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                ),
               ),
               ElevatedButton(
                 onPressed: submitExpenseData,
-                child: const Text('Save expense'),
+                child: const Text(
+                  'Save expense',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                ),
               ),
             ],
           )
