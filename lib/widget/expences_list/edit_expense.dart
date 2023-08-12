@@ -35,14 +35,14 @@ class _EditExpenseState extends State<EditExpense> {
   }
 
   void finaChanges() {
-    // var enterdAmount = double.tryParse(editedAmountController.text);
-    // widget.editComplete(
-    //   Expense(
-    //       amount: enterdAmount!,
-    //       date: selectedDate as DateTime,
-    //       title: editedTextController.text,
-    //       catagory: selectedCatagory),
-    // );
+    var enterdAmount = double.tryParse(editedAmountController.text);
+    widget.editComplete(
+      Expense(
+          amount: enterdAmount!,
+          date: selectedDate as DateTime,
+          title: editedTextController.text,
+          catagory: selectedCatagory),
+    );
     Navigator.pop(context);
   }
 
@@ -156,9 +156,7 @@ class _EditExpenseState extends State<EditExpense> {
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
                   )),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: finaChanges,
                 child: const Text(
                   "save",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),

@@ -34,39 +34,39 @@ class _NewExpense extends State<NewExpense> {
   }
 
   void submitExpenseData() {
-    // var enteredAmount = double.tryParse(
-    //     _amountEdidtingController.text); //'hello' => null , '12.33' => 12.33
-    // // ignore: unrelated_type_equality_checks
-    // final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
+    var enteredAmount = double.tryParse(
+        _amountEdidtingController.text); //'hello' => null , '12.33' => 12.33
+    // ignore: unrelated_type_equality_checks
+    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
 
-    // if (_textEdidtingController.text.trim().isEmpty ||
-    //     amountIsInvalid ||
-    //     selectedDate == null) {
-    //   showDialog(
-    //     context: context,
-    //     builder: (context) => AlertDialog(
-    //       title: const Text('Invalid Inputs'),
-    //       content: const Text(
-    //           'Please make sure a valid title, amount, date, ans catagory is selected'),
-    //       actions: [
-    //         TextButton(
-    //           onPressed: () {
-    //             Navigator.pop(context);
-    //           },
-    //           child: const Text('Okay'),
-    //         ),
-    //       ],
-    //     ),
-    //   );
-    //   return;
-    // }
-    // widget.addMyExpense(
-    //   Expense(
-    //       amount: enteredAmount,
-    //       date: selectedDate!,
-    //       title: _textEdidtingController.text,
-    //       catagory: _selectedCatagory),
-    // );
+    if (_textEdidtingController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Invalid Inputs'),
+          content: const Text(
+              'Please make sure a valid title, amount, date, ans catagory is selected'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+    widget.addMyExpense(
+      Expense(
+          amount: enteredAmount,
+          date: selectedDate!,
+          title: _textEdidtingController.text,
+          catagory: _selectedCatagory),
+    );
     Navigator.pop(context);
   }
 

@@ -28,9 +28,12 @@ class _ExpenseItemState extends State<ExpencesItem> {
   }
 
   void editiResult(Expense editedExpense) {
-    setState(() {
-      widget.expense = editedExpense;
-    });
+    // setState(() {
+    //   widget.expense.title = editedExpense.title;
+    //   widget.expense.amount = editedExpense.amount;
+    //   widget.expense.catagory = editedExpense.catagory;
+    //   widget.expense.date = editedExpense.date;
+    // });
   }
 
   @override
