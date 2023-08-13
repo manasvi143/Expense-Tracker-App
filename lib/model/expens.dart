@@ -22,11 +22,11 @@ class Expense {
     required this.catagory,
   }) : id = uuid.v4();
 
-  final String id;
-  final String title;
-  final DateTime date;
-  final double amount;
-  final Catagory catagory;
+  String id;
+  String title;
+  DateTime date;
+  double amount;
+  Catagory catagory;
 
   String get formattDate {
     return formatter.format(date);

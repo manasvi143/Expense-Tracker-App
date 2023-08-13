@@ -29,6 +29,10 @@ class _EditExpenseState extends State<EditExpense> {
         firstDate: firstDate,
         lastDate: now);
 
+    if (datepicked == null) {
+      return;
+    }
+
     setState(() {
       selectedDate = datepicked;
     });
@@ -36,13 +40,36 @@ class _EditExpenseState extends State<EditExpense> {
 
   void finaChanges() {
     var enterdAmount = double.tryParse(editedAmountController.text);
-    widget.editComplete(
-      Expense(
-          amount: enterdAmount!,
-          date: selectedDate as DateTime,
-          title: editedTextController.text,
-          catagory: selectedCatagory),
-    );
+    final amountIsInvalid = enterdAmount == null || enterdAmount <= 0;
+
+    if (editedTextController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Invalid Inputs'),
+          content: const Text(
+              'Please make sure a valid title, amount, date, and catagory is selected'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+    Expense temExpense = Expense(
+        amount: enterdAmount,
+        date: selectedDate as DateTime,
+        title: editedTextController.text,
+        catagory: selectedCatagory);
+    widget.editComplete(temExpense);
+
     Navigator.pop(context);
   }
 
@@ -52,6 +79,7 @@ class _EditExpenseState extends State<EditExpense> {
     editedAmountController.text = widget.editExpense.amount.toString();
     selectedDate = widget.editExpense.date;
     selectedCatagory = widget.editExpense.catagory;
+
     super.initState();
   }
 

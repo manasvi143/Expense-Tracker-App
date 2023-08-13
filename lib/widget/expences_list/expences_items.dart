@@ -23,17 +23,17 @@ class _ExpenseItemState extends State<ExpencesItem> {
       isScrollControlled: true,
       context: context,
       builder: (context) =>
-          EditExpense(editExpense: widget.expense, editComplete: editiResult),
+          EditExpense(editExpense: widget.expense, editComplete: editResult),
     );
   }
 
-  void editiResult(Expense editedExpense) {
-    // setState(() {
-    //   widget.expense.title = editedExpense.title;
-    //   widget.expense.amount = editedExpense.amount;
-    //   widget.expense.catagory = editedExpense.catagory;
-    //   widget.expense.date = editedExpense.date;
-    // });
+  void editResult(Expense expensesses) {
+    setState(() {
+      widget.expense.amount = expensesses.amount;
+      widget.expense.title = expensesses.title;
+      widget.expense.date = expensesses.date;
+      widget.expense.catagory = expensesses.catagory;
+    });
   }
 
   @override

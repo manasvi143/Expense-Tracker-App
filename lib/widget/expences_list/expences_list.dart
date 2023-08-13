@@ -11,6 +11,7 @@ class ExpencesList extends StatelessWidget {
   });
 
   final void Function(Expense expensess) onRemove;
+
   final List<Expense> expences;
 
   @override
